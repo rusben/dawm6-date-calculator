@@ -8,4 +8,19 @@ First the user select the number of dates to calculate with and the number of da
 
 The windows comunicate via $window object sharing data via angular.
 
+# AngularJS Tags
+
+  ng-app
+
+  ng-class
+
+  ng-click
+
+  ng-controller
+
+  ng-model
+
+  ng-repeat
+  
+  ng-show
 
