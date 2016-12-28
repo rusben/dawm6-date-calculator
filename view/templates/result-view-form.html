@@ -1,0 +1,12 @@
+<h2>Result: {{actionName(action)}}</h2>
+
+<table class="table table-bordered">
+	<tr ng-repeat="i in getNumber(DateCalculatorCtrl.result.data.length) track by $index">
+		<td>{{DateCalculatorCtrl.result.source[$index]}}</td>
+		<td ng-show="DateCalculatorCtrl.result.action == 'add' || DateCalculatorCtrl.result.action == 'substract'">{{actionSymbol(DateCalculatorCtrl.result.action)}}</td>
+		<td ng-show="DateCalculatorCtrl.result.action == 'add' || DateCalculatorCtrl.result.action == 'substract'">{{DateCalculatorCtrl.result.nDays}}</td>
+		<td>=</td>
+		<td>{{DateCalculatorCtrl.result.data[$index]}}</td>
+	</tr>
+</table>
+<button class="btn btn-default" ng-click="DateCalculatorCtrl.initialize()">Back</button>

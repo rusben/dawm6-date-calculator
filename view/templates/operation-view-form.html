@@ -1,0 +1,40 @@
+<h2>{{actionName(action)}}</h2>
+<form>
+	<div class="form-group" ng-repeat="i in getNumber(PopUpCtrl.nDates) track by $index"  ng-class="{'has-error': !PopUpCtrl.validDate({{$index}})}">
+    	<input class="form-control" ng-model="PopUpCtrl.dates[$index]" name="dates{{$index}}" type="text" placeholder="YYYY-MM-DD"/>
+    	 <span ng-show="!PopUpCtrl.validDate({{$index}})" class="help-block has-error">Please, enter a valid date with format YYYY-MM-DD</span>
+	</div>
+
+	<div class="form-group" ng-show="action=='add' || action=='substract'">
+		<label for="nDays">Number of days to {{action}}</label>
+		<input class="form-control" ng-model="PopUpCtrl.nDays" id="nDays" type="number" readonly />
+	</div>
+
+  <button class="btn btn-primary pull-right" ng-click="PopUpCtrl.calculate()">Calculate</button>
+</form>
+
+<!-- 
+
+https://docs.angularjs.org/api/ng/input/input%5Bdate%5D 
+  {{dateCalculatorForm.$valid}}
+  {{dateCalculatorForm.$error.date[0].$valid}} 
+
+<h2>{{actionName(action)}}</h2>
+<form name="dateCalculatorForm">
+	<div ng-repeat="i in getNumber(PopUpCtrl.nDates) track by $index" class="form-group" ng-class="{'has-error': dateCalculatorForm.dates{{$index}}.$invalid || dateCalculatorForm.dates{{$index}}.$viewValue == ''}">
+    	<input class="form-control" ng-model="PopUpCtrl.dates[$index]" name="dates{{$index}}" type="date" placeholder="YYYY-MM-DD"/>
+	</div>
+
+	<div class="form-group" ng-show="action=='add' || action=='substract'">
+		<label for="nDays">Number of days to {{action}}</label>
+		<input class="form-control" ng-model="PopUpCtrl.nDays" id="nDays" type="number" readonly />
+	</div>
+
+  <button class="btn btn-primary pull-right" ng-click="PopUpCtrl.calculate()">Calculate</button>
+</form>
+
+// Buggy: dates not parsing correctly
+2012-50-50 is a valid date
+
+-->
+

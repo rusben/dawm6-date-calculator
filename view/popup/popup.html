@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="DateCalculatorPopUp" xmlns="http://www.w3.org/1999/html" >
+<head lang="en">
+		<!--General-->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>DateCalculator</title>
+		<meta name="description" content="DAW-M06-Pt2.1">
+
+		<!--css-->
+		<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+		<!--Frameworks-->
+		<!--JQuery-->
+		<script src="../../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+
+		<!--Angular-->
+		<script src="../../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+
+		<!--Bootstrap-->
+		<link href="../../vendors/bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+		<!-- app -->
+		<script src="../../js/controller/popup.js" type="text/javascript" xml:space="preserve"></script>
+</head>
+<body>
+
+ 	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">DateCalculator</a>
+			</div>
+		</div>
+	</nav>
+
+	<div id="main" class="container" ng-controller="PopUpController as PopUpCtrl">
+		<div class="row">
+			<operation-view-form></operation-view-form>
+		</div>
+		<br/>
+		<div class="row">
+			<footer>
+				<p>© 2016 DAW-M06, Institut Provençana.</p>
+			</footer>
+		</div>
+	</div>
+
+</body>
+</html>

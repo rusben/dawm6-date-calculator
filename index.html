@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="DateCalculatorApp" xmlns="http://www.w3.org/1999/html" >
+<head lang="en">
+		<!--General-->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />		
+		<title>DateCalculator</title>
+
+		<!--css-->
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+		<!--Frameworks-->
+		<!--JQuery-->
+		<script src="vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+
+		<!--Angular-->
+		<script src="vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+
+		<!--Bootstrap-->
+		<link href="vendors/bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+		<!-- app -->
+		<script src="js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+</head>
+<body>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DateCalculator</a>
+        </div>
+      </div>
+    </nav>
+
+	<div id="main" class="container">
+		<div class="jumbotron">
+			<h1>DateCalculator</h1>
+			<h2>Choose your dates and get amazed by our tricks!</h2>
+		</div>
+
+		<div class="row">
+		
+			<div id="date-calculator-ctrl" ng-controller="DateCalculatorController as DateCalculatorCtrl">
+				<div id="tab-operations" ng-show="!showResult">
+					<a class="btn btn-default" ng-click="action='add'" href="#" id="add" >Add</a>
+				    <a class="btn btn-default" ng-click="action='substract'" href="#" id="substract">Substraction</a>
+				    <a class="btn btn-default" ng-click="action='weekDay'" href="#" id="weekDay">Day of the week</a>
+				    <a class="btn btn-default" ng-click="action='daysUntilToday'" href="#" id="daysUntilToday">Number of days between the given date and today</a><br/><br/>
+
+	
+				    <h2>{{actionName(action)}}</h2>
+					<form class="form">
+						<div class="form-group" ng-class="{'has-error': !DateCalculatorCtrl.validNDates()}">
+							<label for="nDates">Number of dates</label>
+							<input ng-model="DateCalculatorCtrl.nDates" class="form-control" id="nDates" type="number" min="1"/>
+							<span ng-show="!DateCalculatorCtrl.validNDates()" class="help-block has-error">Please, enter an integer number greater or equal to 1.</span>
+						</div>
+
+						<div class="form-group" ng-show="action=='add' || action=='substract'"  ng-class="{'has-error': !DateCalculatorCtrl.validNDays()}">
+							<label for="nDays">Days to {{action}}</label>
+							<input ng-model="DateCalculatorCtrl.nDays" class="form-control" id="nDays" type="number" min="1"/>
+							 <span ng-show="!DateCalculatorCtrl.validNDays()" class="help-block has-error">Please, enter an integer number greater or equal to 1.</span>
+						</div>
+
+						<button class="btn btn-primary pull-right" id="popup" ng-click="DateCalculatorCtrl.popUpOperation()">Calculate</button>
+					</form>
+					
+				</div>
+				<div id="tab-result" ng-show="showResult">
+					<result-view-form></result-view-form>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<footer>
+				<p>© 2016 DAW-M06, Institut Provençana.</p>
+			</footer>
+		</div>
+
+	</div>
+	
+</body>
+</html>
