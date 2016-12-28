@@ -55,21 +55,26 @@ $(document).ready(function () {
     };
 
     this.popUpOperation = function() {
-      var popupWindow = $window.open('view/popup/popup.html');
+
+      if (this.validNDates() && this.validNDays()) {
+        $window.open('view/popup/popup.html');  
+      }
+      
       // Uncomment this line if you want to share data with a javascript variable
       // To share via javascript vartiable uncomment the lines in popUp.js as well
+      // var popupWindow = $window.open('view/popup/popup.html');  
       // popupWindow.shared = {'nDates': this.nDates, 'nDays': this.nDays, 'action': $scope.action}
     };
 
     // http://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
     this.validNDates = function () {
       // valid integer
-      if (!isNaN(this.nDates) && this.nDates >= 1 && this.nDates % 1 === 0) return true;
+      if (!isNaN(this.nDates) && this.nDates >= 1 && this.nDates % 1 === 0 && this.nDates !== "") return true;
     };
 
     this.validNDays = function () {
       // valid integer
-      if (!isNaN(this.nDays) && this.nDays >= 1 && this.nDays % 1 === 0) return true;
+      if (!isNaN(this.nDays) && this.nDays >= 1 && this.nDays % 1 === 0 && this.nDays !== "") return true;
     };
 
     // Initialize with the default values
