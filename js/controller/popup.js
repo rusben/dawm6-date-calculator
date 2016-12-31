@@ -7,9 +7,8 @@ $(document).ready(function () {
 /* (function(){ // write your code here })(); */
 (function(){
   // This is the instance of our angular app
-  var app = angular.module("DateCalculatorPopUp", []);
 
-  app.controller("PopUpController", function($scope, $window) {
+  angular.module('DateCalculatorApp').controller('PopUpController', ['$scope', '$window', function($scope, $window) {
     // Controller properties
     this.dates;    
     this.result;
@@ -161,9 +160,9 @@ $(document).ready(function () {
     // Initialize the controller default values
     this.initialize();
 
-  });
+  }]);
 
-  app.directive("operationViewForm", function () {
+  angular.module('DateCalculatorApp').directive("operationViewForm", function () {
     return {
       restrict: 'E', // type of directive
       templateUrl:"../../view/templates/operation-view-form.html",

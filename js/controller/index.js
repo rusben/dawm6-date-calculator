@@ -6,10 +6,9 @@ $(document).ready(function () {
 // angularjs code
 /* (function(){ // write your code here })(); */
 (function(){
-  // This is the instance of our angular app
-  var app = angular.module("DateCalculatorApp", []);
 
-  app.controller("DateCalculatorController", function($scope, $window) {
+angular.module('DateCalculatorApp').controller('DateCalculatorController', ['$scope', '$window', function($scope, $window) {
+
     // Controller properties
     this.dates; // Array with the dates
     this.nDates; // Number of dates
@@ -80,7 +79,7 @@ $(document).ready(function () {
     // Initialize with the default values
     this.initialize();
     
-  });
+  }]);
 
   /*
     The restrict option is typically set to:
@@ -91,7 +90,7 @@ $(document).ready(function () {
     'M' - only matches comment
   */
 
-  app.directive("resultViewForm", function () {
+  angular.module('DateCalculatorApp').directive("resultViewForm", function () {
     return {
       restrict: 'E', // type of directive
       templateUrl:"view/templates/result-view-form.html",
